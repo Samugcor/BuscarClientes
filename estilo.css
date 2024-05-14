@@ -1,0 +1,133 @@
+*{ 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Reset default styles */
+.navbar {
+    position: fixed;
+    width: 100%;
+    padding: 10px 0; /* Adds some vertical padding */
+
+    background-color: #f9f9f9; /* Light background color */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.tab {
+    color: #333; 
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+.tab:hover {
+    color: #007bff; /* Color on hover */
+}
+
+
+
+
+.searchcontainer {
+    padding: 5% ;
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Style for the input field */
+.searchcontainer input[type="search"] {
+    border: 2px solid ;
+    width: 30%;
+    padding: 1% 1% 1% 3%; /* Padding inside the input field */
+    background-color:  #f6f6f6; /* Light border */
+    border-radius: 50px; /* Rounded corners */
+    font-size: 16px; /* Standard font size */
+    border: none;
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+
+    background-image: url(imagenes/search-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 2%;
+    background-size: 5%;
+}
+.searchimgcontainer{
+    width: 10%;
+    object-fit: contain;
+}
+.searchimgcontainer img{
+    width: 100%;
+}
+
+/* Hover effect for the input field */
+.searchcontainer input[type="search"]:hover {
+    border-color: #1a88fe; /* Color change on hover */
+}
+
+/* Focus effect for the input field */
+.searchcontainer input[type="search"]:focus {
+    outline: none; /* Removes the default outline */
+    border-color: #1a88fe; /* Color change on focus */
+    box-shadow: 0 0 0 2px #007bff79; /* Soft focus ring */
+}
+
+
+
+.cardcontainer {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.card {
+    padding: 3.5%; /* Adds some space around the content */
+    border-radius: 10px; /* Rounded corners for the card */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Drop shadow effect */
+    
+    max-width: 80%; /* Ensures the card fits within the viewport */
+    margin: 0 auto 3.5% auto; 
+
+    background-color: #f9f9f9; /* Light background color */
+    display: flex;
+    align-items: center;
+    
+}
+.card:hover{
+    box-shadow: 0 4px 8px #007bff79; /* Drop shadow effect */
+}
+
+.cardimgcontainer{
+    margin-right: 5%;
+    width: 30%; /* Adjusts the image size */
+    height: auto; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the image covers the area without stretching */
+}
+.cardcontainer img{
+    border-radius: 50%; /* Makes the image round */
+    width: 100%;
+}
+    
+
+.textcontainer {
+    flex-grow: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+}
+
+.textcontainer h3 {
+    color: #007bff; /* Color on hover */
+    font-size: 24px; /* Adjust font size as needed */
+    margin-bottom: 2%; /* Adds some space between the title and the description */
+}
+
+.textcontainer p {
+    font-size: 16px; /* Adjust font size as needed */
+    color: #333; 
+}
