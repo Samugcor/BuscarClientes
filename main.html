@@ -10,7 +10,7 @@
 
 </head>
 <body>
-
+<!---Barra navegaciion-->
     <div class="navbar">
         <span class="tab">Inicio</span>
         <span class="tab">Nuestros clientes</span>
@@ -19,67 +19,27 @@
     </div>
 
    
-
+<!---Buscador-->
     <div class="searchcontainer">
         <input type="search" name="" id="searchbar" placeholder="Busca usuarios...">
     </div>
 
-
+<!---Cartas-->
     <div class="cardcontainer">
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">María Gago</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">Margarita Perez</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">Rosa Martinez</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">Ana Gonzalez</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">Julia Pereiro</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="cardimgcontainer">
-                <img src="imagenes/fotoperfil.jpg" alt="">
-            </div>
-            <div class="textcontainer">
-                <h3 class="nombre">Amanda Santos</h3>
-                <p>Hace cosas</p>
-            </div>
-        </div>
+        
     </div>
+
+    <template id="cardTemplate">
+        <div class="card">
+            <div class="cardimgcontainer">
+                <img class="cardimg" src="" alt="">
+            </div>
+            <div class="textcontainer">
+                <h3 class="nombre"></h3>
+                <p class="descrippcion"></p>
+            </div>
+        </div>
+    </template>
+
 </body>
 </html>
