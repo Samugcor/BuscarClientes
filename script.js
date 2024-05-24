@@ -24,23 +24,49 @@ let arrayClientes=[
 
 
 $(function() {
-    let template = document.querySelector("#cardTemplate").content;
+    function loadcards(array) {
+        let template = $("#cardTemplate").prop('content');
 
-    arrayClientes.forEach((cliente,index )=> {
-        let clone = document.importNode(template, true);
-        $(clone).find(".card").data("indice", index);
-        $(clone).find(".cardimg").attr('src',cliente.fotoPerfil);
-        $(clone).find(".nombre").text(cliente.nombre);
-        $(clone).find(".descripcion").text(cliente.descripcion);
-        $(".cardcontainer").append(clone);
-    });
+        array.forEach((cliente,index )=> {
+            let clone = $(template).clone(true);
+            $(clone).find(".card").data("indice", index);
+            $(clone).find(".cardimg").attr('src',cliente.fotoPerfil);
+            $(clone).find(".nombre").text(cliente.nombre);
+            $(clone).find(".descripcion").text(cliente.descripcion);
+            $(".cardcontainer").append(clone);
+        });
+    }
 
-    $(".close").on("click", function() {
+    function emptycards(){
+        $(".cardcontainer").empty()
+    }
+
+    loadcards(arrayClientes);
+
+    $('#adduser').on("click", function(){
+        $(".modalback").css('display', 'block')
+    })
+
+    $('#closeform').on("click", function(){
+        $(".modalback").css('display', 'none')
+    })
+
+    $('#addform').on("click", function(){
+        let urnombre = $('#urn').val()
+        let urdescripcion = $('#urn').val()
+        let ururl = $('#urn').val()
+
+        arrayClientes.add(new Cliente(urnombre,urdescripcion,ururl))
+    })
+
+    $(".closecard").on("click", function() {
+        console.log("algo");
         let card = $(this).closest(".card");//closest busca entre los ancestros de un elemento, yendo hacia la raiz hasta encontrar un mach
         let indice = card.data("indice");
         
-        arrayClientes.splice(indice, 1);
-        card.remove();
+        let narray=arrayClientes.splice(indice, 1);
+        
+        loadcards(narray);
     });
 
     $("#searchbar").keyup(function() {
