@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="estilo.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script><!--Metemos jquery-->
-    <script src="script.js" defer></script>
+    
 
 </head>
 <body>
@@ -30,16 +29,21 @@
     </div>
 
     <template id="cardTemplate">
-        <div class="card">
+        <div class="card" data-indice="">
             <div class="cardimgcontainer">
                 <img class="cardimg" src="" alt="">
             </div>
             <div class="textcontainer">
                 <h3 class="nombre"></h3>
-                <p class="descrippcion"></p>
+                <p class="descripcion"></p>
             </div>
+            <button class="close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
         </div>
     </template>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script><!--Metemos jquery-->
+    <script src="script.js" defer></script>
 </body>
 </html>

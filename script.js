@@ -26,12 +26,21 @@ let arrayClientes=[
 $(function() {
     let template = document.querySelector("#cardTemplate").content;
 
-    arrayClientes.forEach(cliente => {
+    arrayClientes.forEach((cliente,index )=> {
         let clone = document.importNode(template, true);
+        $(clone).find(".card").data("indice", index);
         $(clone).find(".cardimg").attr('src',cliente.fotoPerfil);
         $(clone).find(".nombre").text(cliente.nombre);
-        $(clone).find(".descrippcion").text(cliente.descripcion);
+        $(clone).find(".descripcion").text(cliente.descripcion);
         $(".cardcontainer").append(clone);
+    });
+
+    $(".close").on("click", function() {
+        let card = $(this).closest(".card");//closest busca entre los ancestros de un elemento, yendo hacia la raiz hasta encontrar un mach
+        let indice = card.data("indice");
+        
+        arrayClientes.splice(indice, 1);
+        card.remove();
     });
 
     $("#searchbar").keyup(function() {
@@ -47,4 +56,5 @@ $(function() {
             }
         });
     });
+
 });
