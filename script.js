@@ -24,10 +24,10 @@ let arrayClientes=[
 
 
 $(function() {
-    function loadcards(array) {
+    function loadcards() {
         let template = $("#cardTemplate").prop('content');
 
-        array.forEach((cliente,index )=> {
+        arrayClientes.forEach((cliente,index )=> {
             let clone = $(template).clone(true);
             $(clone).find(".card").data("indice", index);
             $(clone).find(".cardimg").attr('src',cliente.fotoPerfil);
@@ -41,7 +41,7 @@ $(function() {
         $(".cardcontainer").empty()
     }
 
-    loadcards(arrayClientes);
+    loadcards();
 
     $('#adduser').on("click", function(){
         $(".modalback").css('display', 'block')
@@ -52,21 +52,31 @@ $(function() {
     })
 
     $('#addform').on("click", function(){
+        
         let urnombre = $('#urn').val()
-        let urdescripcion = $('#urn').val()
-        let ururl = $('#urn').val()
+        let urdescripcion = $('#urd').val()
+        let ururl = $('#uri').val()
 
-        arrayClientes.add(new Cliente(urnombre,urdescripcion,ururl))
+        arrayClientes.push(new Cliente(urnombre,urdescripcion,ururl))
+        
+        emptycards()
+        loadcards()
+        
+        $('#urn').val("")
+        $('#urd').val("")
+        $('#uri').val("")
+
+        $(".modalback").css('display', 'none')
     })
 
-    $(".closecard").on("click", function() {
+    $(".cardcontainer").on("click",".closecard", function() {//Tienes que llamarlo desde el contenedor si o si por el event delegation
         console.log("algo");
         let card = $(this).closest(".card");//closest busca entre los ancestros de un elemento, yendo hacia la raiz hasta encontrar un mach
         let indice = card.data("indice");
         
-        let narray=arrayClientes.splice(indice, 1);
-        
-        loadcards(narray);
+        arrayClientes.splice(indice, 1);
+        emptycards();
+        loadcards();
     });
 
     $("#searchbar").keyup(function() {
