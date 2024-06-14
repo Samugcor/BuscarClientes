@@ -38,35 +38,35 @@ $(function() {
     }
 
     function emptycards(){
-        $(".cardcontainer").empty()
+        $(".cardcontainer").empty();
     }
 
     loadcards();
 
     $('#adduser').on("click", function(){
-        $(".modalback").css('display', 'block')
+        $(".modalback").css('display', 'block');
     })
 
     $('#closeform').on("click", function(){
-        $(".modalback").css('display', 'none')
+        $(".modalback").css('display', 'none');
     })
 
     $('#addform').on("click", function(){
         
-        let urnombre = $('#urn').val()
-        let urdescripcion = $('#urd').val()
-        let ururl = $('#uri').val()
+        let urnombre = $('#urn').val();
+        let urdescripcion = $('#urd').val();
+        let ururl = $('#uri').val();
 
-        arrayClientes.push(new Cliente(urnombre,urdescripcion,ururl))
+        arrayClientes.push(new Cliente(urnombre,urdescripcion,ururl));
         
-        emptycards()
-        loadcards()
+        emptycards();
+        loadcards();
         
-        $('#urn').val("")
-        $('#urd').val("")
-        $('#uri').val("")
+        $('#urn').val("");
+        $('#urd').val("");
+        $('#uri').val("");
 
-        $(".modalback").css('display', 'none')
+        $(".modalback").css('display', 'none');
     })
 
     $(".cardcontainer").on("click",".closecard", function() {//Tienes que llamarlo desde el contenedor si o si por el event delegation
